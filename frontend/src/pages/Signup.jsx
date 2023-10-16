@@ -25,7 +25,13 @@ const Signup = () => {
     const handleFileInputChange = (event) => {
         const file = event.target.files[0];
 
+        // later I will use cloudinary to upload images
+        // the console log is to see if the file was received and displayed in the console
         console.log(file);
+    }
+
+    const submitHandler = async event => {
+        event.preventDefault()
     }
 
     return <section className='px-5 xl:px-0'>
@@ -42,7 +48,7 @@ const Signup = () => {
                 <div className="rounded-l-lg lg:pl-16 py-10">
                     <h3 className='text-headingColor text-[22px] leading-9 font-bold mb-10'>Create an <span className='text-primaryColor'>account</span></h3>
 
-                    <form>
+                    <form onSubmit={submitHandler}>
                         <div className="mb-5">
                             <input type="text" placeholder="Full Name" name="name" value={formData.name} onChange={handleInputChange} className="w-full pr-4 py-3 border-b border-solid border-[#0066ff61] focus:outline-none focus:border-b-primaryColor text-[22px] leading-7 text-headingColor placeholder:text-textColor rounded-md cursor-pointer" required />
                         </div>
@@ -80,7 +86,7 @@ const Signup = () => {
                             </figure>
 
                             <div className="relative w-[130px] h-[50px]">
-                                <input type="file" name='photo' id='customFile' accept='.jpg, .png' className='absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer' />
+                                <input type="file" name='photo' id='customFile' onChange={handleFileInputChange} accept='.jpg, .png' className='absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer' />
 
                                 <label htmlFor="customFile" className='absolute top-0 left-0 w-full h-full flex items-center px-[0.75rem] py-[0.375rem] text-[15px] leading-6 overflow-hidden bg-[#0066ff46] text-headingColor font-semibold rounded-lg truncate cursor-pointer'>Upload Photo</label>
                             </div>
