@@ -28,7 +28,12 @@ const Login = () => {
                         <button type="submit" className="w-full bg-primaryColor text-white text-[18px] leading-[30px] rounded-lg px-4 py-3">Login</button>
                     </div>
 
-                    <p className="mt-5 text-textColor text-center">Don't have an account? <Link to='/register' className="text-primaryColor font-medium ml-1">Register</Link></p>
+                    <p className="mt-5 text-textColor text-center">Don't have an account?
+                        <Link to='/register' className="text-primaryColor font-medium ml-1">
+                            Register
+                        </Link>
+                    </p>
+
                 </form>
             </div>
         </section>
