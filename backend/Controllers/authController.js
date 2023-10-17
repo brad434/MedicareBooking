@@ -59,6 +59,20 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
+  const { email, password } = req.body;
   try {
+    let user = null;
+    const patient = await User.findOne({ email });
+    const doctor = await Doctor.findOne({ email });
+
+    //if we find the patient email from variable "patient" assign it as the user since it is null
+    if (patient) {
+      user = patient;
+    }
+
+    //if we find the doctor email from variable "doctor" assign it as the user since it is null
+    if (doctor) {
+      user = doctor;
+    }
   } catch (err) {}
 };
