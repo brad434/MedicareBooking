@@ -13,6 +13,7 @@ const generateToken = user => {
   );
 };
 
+// ------------------------------- REGISTER CONTROLS --------------------------------------------------------
 export const register = async (req, res) => {
   const { email, password, name, role, photo, gender } = req.body;
 
@@ -68,6 +69,7 @@ export const register = async (req, res) => {
   }
 };
 
+// ----------------------------- LOGIN CONTROLS -------------------------------------------------------
 export const login = async (req, res) => {
   const { email } = req.body;
 
