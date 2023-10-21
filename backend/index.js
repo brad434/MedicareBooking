@@ -4,6 +4,8 @@ import cors from "cors";
 import mongoose, { mongo } from "mongoose";
 import dotenv from "dotenv";
 import authRoute from "./Routes/auth.js";
+import userRoute from "./Routes/user.js";
+import doctorRoute from "./Routes/doctor.js";
 
 dotenv.config();
 
@@ -37,7 +39,9 @@ const connectionDB = async () => {
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
-app.use("/api/v1/auth", authRoute); //domain/api/v1/auth/register
+app.use("/api/v1/auth", authRoute); // test the routes through postman
+app.use("/api/v1/users", userRoute); // test the routes through postman
+app.use("/api/v1/doctors", doctorRoute);
 
 app.listen(port, () => {
   connectionDB();
