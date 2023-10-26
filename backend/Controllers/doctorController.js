@@ -70,6 +70,7 @@ export const getAllDoctor = async (req, res) => {
         ],
       }).select("-password");
     } else {
+      //we set a condition where the Doctor will appear in the results if their account has been "approved". Default schema for doctor is pending until the admin changes it to approved
       doctors = await Doctor.find({ isApproved: "approved" }).select(
         "-password"
       );

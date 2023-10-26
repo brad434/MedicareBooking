@@ -14,7 +14,8 @@ export const authenticate = async (req, res, next) => {
   }
 
   try {
-    // console.log(authToken); This was to test and see if its working.
+    //   This was to test and see if its working.
+    // console.log(authToken);
     const token = authToken.split(" ")[1];
 
     // verify token
@@ -33,6 +34,7 @@ export const authenticate = async (req, res, next) => {
   }
 };
 
+// this is needed so that on
 export const restrict = roles => async (req, res, next) => {
   const userId = req.userId;
 
